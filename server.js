@@ -12,6 +12,7 @@ const adminController = require('./controllers/adminController');
 const notificationsRoutes = require('./routes/notifications');
 const http = require('http');
 const { Server } = require('socket.io');
+const helpRoutes = require('./routes/help');
 
 const app = express();
 app.use(cors());
@@ -25,6 +26,7 @@ app.use('/events', eventRoutes);
 app.use('/resources', resourceRoutes);
 app.use('/seva', sevaRoutes);
 app.use('/notifications', notificationsRoutes);
+app.use('/help', helpRoutes);
 
 // Admin stats endpoint
 const auth = require('./middleware/auth');
