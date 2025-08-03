@@ -3,7 +3,10 @@ const router = express.Router();
 const eventController = require('../controllers/eventController');
 const auth = require('../middleware/auth');
 
-// All routes require authentication
+// Public route for events (no auth required for viewing)
+router.get('/public', eventController.getAllEvents);
+
+// All other routes require authentication
 router.post('/', auth, eventController.createEvent);
 router.get('/', auth, eventController.getAllEvents);
 router.get('/:id', auth, eventController.getEvent);
